@@ -1,163 +1,215 @@
+/* Created by Good_Bits */
+
+
+:root {
+    --sidebar-width: 300px ;
+}
+
 html {
-    margin: 0;
-    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
 }
+
+* {
+    padding: 0 ;
+    margin : 0 ;
+    box-sizing: border-box ;
+    user-select: none ;
+    -webkit-user-select: none ;
+    -webkit-tap-highlight-color: transparent ;
+}
+
 body {
-    font-family: 'Handlee', cursive;
-    font-size: 13pt;
-    background-color: #efefef;
-    padding: 10px;
-    margin: 0;
+    width: 100vw ;
+    max-width: 100% ;
+    overflow-x: hidden ;
 }
-h1 {
-    font-size: 15pt;
-    color: #20bcd5;
-    text-align: center;
-    padding: 18px 0 18px 0;
-    margin: 0 0 10px 0;
+
+.wrapper {
+    position: relative ;
+    width : 100% ;
+    height: 100vh ;
+    overflow: hidden ;
+    display: flex ;
 }
-h1 span {
-    border: 4px dashed #20bcd5;
-    padding: 10px;
+
+
+.game-window {
+    flex: 1 ;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background-color: #393E46 ;
+
+    flex-direction: column ;
 }
-p {
-    padding: 0;
-    margin: 0;
+
+.game-window .message-container {
+    color: #658185 ;
 }
-.img-circle {
-    border: 3px solid white;
-    border-radius: 50%;
+
+.game-window .game-start-message {
+    display: flex ;
+    align-items: center ;
+    flex-direction: column ;
 }
-.section {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 10px;
+
+#timer , #scorePageTime {
+    font-size: 2rem ;
+    font-weight: 500 ;
+    color: #8bb0b6 ;
+    font-family: monospace ;
 }
-#header {
-    background-image: url("https://www.sololearn.com/Uploads/header.jpg");
-    background-size: cover;
+
+#scorePageTime {
+    margin-left: 1rem ;
 }
-#header img {
-    display: block;
-    width: 80px;
-    height: 80px;
-    margin: auto;
+
+.game-board-container {
+    position: relative ;
+    --width: min(80vw,60vh);
+    width: var(--width) ;
+    height :var(--width) ;
+    background-color: #658185 ;
+
+    margin: 3rem 0 ;
 }
-#header p {
-    font-size: 25pt;
-    color: #3b464c;
-    padding-top: 5px;
-    margin: 0;
-    font-weight: bold;
-    text-align: center;
+
+.game-board-container .game-board {
+    width: 100% ;
+    height: 100% ;
+    display: grid ;
+    padding: 4px ;
+    grid-template: repeat(5,1fr) / repeat(5,1fr) ;
+    gap: 4px ;
 }
-.quote {
-    font-size: 12pt;
-    text-align: right;
-    margin-top: 10px;
+
+.game-board-container .game-board .box {
+    position: relative ;
+    background-color: #393E46 ; 
+    transition: all 300ms ease-out;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size: 2.2rem ;
+    color: #fff ;
+    cursor: pointer ;
 }
-table {
-    width: 100%;
+
+.game-board-container .game-board .box:hover {
+    background-color: #2c3035 ;
 }
-table, th, td {
-    border: 2px solid #cecece;
-    border-collapse: collapse;
-    text-align: center;
-    table-layout: fixed;
+
+
+.game-board-container .game-board .box::before {
+    position: absolute ;
+    content: "" ;
+    width: 80% ;
+    height: 80% ;
+    top: 50% ;
+    left: 50% ;
+    background-color: transparent ;
+    transition: all 300ms ease-out;
+    border-radius: 50% ;
+    transform: translate(-50%,-50%) scale(0);
 }
-.selected {
-    background-color: #f36f48;
-    font-weight: bold;
-    color: white;
+
+.game-board-container .game-board .box .num {
+    position: relative ;
+    z-index: 1 ;
 }
-li {
-    margin-bottom: 15px;
-    font-weight: bold;
+
+.game-board-container .game-board .box[data-marked="true"]:before {
+    background-color: #44575a ;
+    transform: translate(-50%,-50%) scale(1);
 }
-progress {
-    width: 70%;
-    height: 20px;
-    color: #3fb6b2;
-    background: #efefef;
+
+.game-window .screen {
+    position: absolute ;
+    background-color: #393E46 ;
+    width: 100% ;
+    height: 100% ;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction: column ;
+
+    transition: opacity 200ms ease-out ;
+    z-index: 99 ;
 }
-progress::-webkit-progress-bar {
-    background: #efefef;
+
+.game-window .screen[data-state="hidden"] {
+    opacity: 0 ;
+    pointer-events: none ;
 }
-progress::-webkit-progress-value {
-    background: #3fb6b2;
-} 
-progress::-moz-progress-bar {
-    color: #3fb6b2;
-    background: #efefef;
+
+.game-window .screen button {
+    font-size: 0.8rem ;
+    letter-spacing: 2px ;
+    font-weight: 700 ;
+    padding: 0.8rem 3rem ;
+    border-radius: 4px ;
+    outline: none ;
+    border: 4px solid  #658185 ;
+    color: #658185 ;
+
+    background-color: transparent ;
+    cursor: pointer ;
+    text-transform: uppercase ;
 }
-iframe, audio {
-    display: block;
-    margin: 0 auto;
-    border: 3px solid #3fb6b2;
+
+.game-window .screen button:hover {
+    background-color: #2c3035 ;
 }
-hr {
-    border: 0;
-    height: 1px;
-    background: #f36f48;
+
+.game-window .screen button:active {
+    background-color: #222529 ;
 }
-form {
-    text-align: center;
-    margin-top: 0;
+
+.game-window .start-screen .game-title {
+    font-size: 4rem ;
+    color: #fff ;
 }
-.submit {
-    background-color: #3fb6b2;
-    padding: 12px 45px;
-    border-radius: 5px;
-    cursor: pointer;
-    color: #ffffff;
-    border: none;
-    outline: none;
-    margin: 0;
-    font-weight: bold;
+
+.game-window .screen .screen-title {
+    position: relative ;
+    font-size: 32px ;
+    background-color: #658185 ;
+    padding: 0.5rem ;
+    font-weight: 700 ;
+    color: #393E46 ;
 }
-.submit:hover {
-    background-color: #43a09d;
+
+.game-window .screen .screen-title::before {
+    position: absolute ;
+    content: "" ;
+    width: 100% ;
+    left: 0 ;
+    height: 4px ;
+    background-color: #658185 ;
+    bottom: calc(100% + 4px);
 }
-textarea {
-    height: 100px;
+
+.game-window .screen .screen-title::after {
+    position: absolute ;
+    content: "" ;
+    width: 100% ;
+    left: 0 ;
+    height: 4px ;
+    background-color: #658185 ;
+    top: calc(100% + 4px);
 }
-input, textarea {
-    margin-bottom: 10px;
-    font-size: 11pt;
-    padding: 15px 10px 10px;
-    border: 1px solid #cecece;
-    background-color: #efefef;
-    color: #787575;
-    border-radius: 5px;
-    width: 70%;
-    outline: none;
+
+.game-window .screen .msg {
+    font-size: 16px ;
+    color: #658185 ;
+    margin: 2rem 0 ;
+
+    max-width: 30ch ;
+    text-align: center ;
+
+    display: flex ;
+    align-items: center ;
 }
-.face {
-    transform: scale(0.4);
-    margin: 0 auto;
-    display: block;
-    margin-top: -35px;
-    margin-bottom: -25px;
-}
-#contacts img {
-    height: 50px;
-    width: 50px;
-    margin-left: 7px;
-    margin-right: 7px;
-}
-#contacts a {
-    text-decoration: none;
-}
-#contacts img:hover {
-    opacity: 0.8;
-}
-#contacts {
-    text-align: center;
-}
-.copyright {
-    font-size: 8pt;
-    text-align: right;
-    padding-bottom: 10px;
-    color: grey;
-} 
