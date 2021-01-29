@@ -1,21 +1,23 @@
-* {
+html {
     padding: 0 ;
     margin : 0 ;
-    box-sizing: border-box ;
-    user-select: none ;
-    -webkit-user-select: none ;
-    -webkit-tap-highlight-color: transparent ;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
 }
 
-.wrapper {
-    position: relative ;
-    width : 100% ;
-    height: 100vh ;
-    overflow: hidden ;
+body {
+    width: 100vw ;
+    max-width: 100% ;
+    overflow-x: hidden ;
+}
+
+.msg {
+font-size: 16px ;
+    color: #658185 ;
+    margin: 2rem 0 ;
+
+    max-width: 30ch ;
+    text-align: center ;
+
     display: flex ;
-}
-
-.text-center {
-    font-size: 4rem ;
-    color: #fff ;
+    align-items: center ;
 }
