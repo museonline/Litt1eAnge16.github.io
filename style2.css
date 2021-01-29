@@ -1,3 +1,7 @@
+:root {
+    --sidebar-width: 300px ;
+}
+
 h1 {
 	color: white;
 	background-color: gray;
