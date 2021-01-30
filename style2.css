@@ -70,8 +70,8 @@ transition:0.5s ease;
 }
 /* D&L MODE ACTIVE ANIMATION. */
 .active.dark-light{
-height:750px;
-width:750px;
+height:2500px;
+width:2500px;
 background:#292929;
 }
 /* REMOVE THIS IF YOU USE. */
