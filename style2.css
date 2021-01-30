@@ -29,7 +29,7 @@ z-index:2;
 }
 /* BUTTON TEST ANIMATION. */
 .button{
-transition:0.5s ease;
+transition:0.2s ease;
 }
 /* BUTTON ACTIVE ANIMATION. */
 .active.button{
