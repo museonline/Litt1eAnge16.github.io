@@ -54,6 +54,11 @@ right:0;
 right:-99px;
 background:#292929;
 }
+/* Кнопка Нравиться*/
+#buttonlike {
+  background-color: black;
+  color: white;
+}
 /* D&L MODE. */
 .dark-light{
 height:10px;
