@@ -1,5 +1,5 @@
 // при клике по кнопке скрипт запустит код
-buttonlike.onclick = function () {
+button.onclick = function () {
   // если фон кнопки чёрный
   if (button.style.backgroundColor == 'black') {
     // изменим его на белый, а текст сделаем чёрным
