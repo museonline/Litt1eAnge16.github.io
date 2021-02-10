@@ -6,10 +6,3 @@ body {
     background-color: maroon;
     background-image: url(https://yastatic.net/s3/auth2/_/msoffice.d1ada09f.svg);
 }
-img {
-	margin: 0;
-	padding: 0;
-	width: 1080px;
-	height: 720px;
-	border: 6%;
-}
