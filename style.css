@@ -38,7 +38,7 @@ body {
     display:flex;
     align-items:center;
     justify-content:center;
-    background-color: #393E46 ;
+    background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
 
     flex-direction: column ;
 }
@@ -85,7 +85,7 @@ body {
 
 .game-board-container .game-board .box {
     position: relative ;
-    background-color: #393E46 ; 
+    background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
     transition: all 300ms ease-out;
 
     display:flex;
@@ -127,7 +127,7 @@ body {
 
 .game-window .screen {
     position: absolute ;
-    background-color: #393E46 ;
+    background-image: linear-gradient(to right, #868f96 0%, #596164 100%);
     width: 100% ;
     height: 100% ;
 
