@@ -4,6 +4,6 @@ body {
     margin: 0;
     padding: 0;
     background-image: url(https://yastatic.net/s3/auth2/_/msoffice.d1ada09f.svg);
-    background-size: contain;
+    background-size: cover;
     text-align: center;
 }
