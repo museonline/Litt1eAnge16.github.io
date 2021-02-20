@@ -77,3 +77,13 @@ body {
   position: absolute;
   bottom: 36px;
 }
+a:link {
+	color: white;
+}
+a:visited {
+	color: white;
+}
+a:hover {
+	color: red;
+	text-decoration: none;
+}
